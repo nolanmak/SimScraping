@@ -1,0 +1,257 @@
+/* BusinessWireList.css */
+@keyframes fadeBackground {
+  0% { background-color: rgba(0, 85, 165, 0.1); }
+  100% { background-color: transparent; }
+}
+
+.new-article {
+  animation: fadeBackground 5s ease-out;
+  position: relative;
+}
+
+.new-article::before {
+  content: 'NEW';
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: #0055a5;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 4px;
+  opacity: 1;
+  animation: fadeOut 5s ease-out;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.bw-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.bw-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.bw-header h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #0055a5;
+  margin-bottom: 8px;
+}
+
+.bw-tagline {
+  font-size: 16px;
+  color: #4b5563;
+}
+
+.bw-controls {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.bw-reset-button {
+  padding: 8px 16px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.bw-reset-button:hover {
+  background-color: #d32f2f;
+}
+
+.bw-refresh-button {
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background-color 0.2s;
+}
+
+.bw-refresh-button:hover {
+  background-color: #45a049;
+}
+
+.bw-loading-spinner {
+  margin: 20px auto;
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(0, 85, 165, 0.2);
+  border-top: 4px solid #0055a5;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.bw-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.article-item {
+  position: relative;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e5e7eb;
+  overflow-wrap: break-word;
+}
+
+@media (min-width: 1024px) {
+  .article-item {
+    padding-top: 34px;
+    padding-bottom: 34px;
+  }
+}
+
+.text-primary {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #111827;
+}
+
+.article-link {
+  font-family: 'Geist', sans-serif;
+  color: #0055a5;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.article-link:hover {
+  color: #003b73;
+  text-decoration: underline;
+}
+
+.rich-text {
+  margin-top: 12px;
+  margin-bottom: 16px;
+  color: #4b5563;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.bw-metadata {
+  display: flex;
+  gap: 16px;
+  font-size: 14px;
+  color: #6b7280;
+  margin-top: 12px;
+}
+
+.bw-date, .bw-location, .bw-published {
+  font-weight: 500;
+}
+
+.bw-published {
+  color: #0055a5;
+  margin-left: 16px;
+}
+
+.bw-loading, .bw-error, .bw-no-articles {
+  text-align: center;
+  padding: 40px;
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.bw-error {
+  color: #ef4444;
+}
+
+.bw-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  margin-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.bw-pagination-button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  background-color: white;
+  color: #374151;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.bw-pagination-button:hover:not(:disabled) {
+  background-color: #f3f4f6;
+  border-color: #d1d5db;
+}
+
+.bw-pagination-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.bw-pagination-info {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.bw-cycle-progress {
+  margin: 10px 0;
+  padding: 5px 10px;
+  background-color: #f8f8f8;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.bw-cycle-bar {
+  height: 8px;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.bw-cycle-fill {
+  height: 100%;
+  background-color: #4caf50;
+  transition: width 0.5s ease-in-out;
+}
+
+.bw-cycle-text {
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+}
+
+.current-article {
+  position: relative;
+  border-left: 4px solid #4caf50;
+  padding-left: 16px;
+  background-color: rgba(76, 175, 80, 0.05);
+} 
